@@ -24,7 +24,7 @@ export default function IndeterminateCheckbox() { // Define a functional compone
   };
 
   const children = ( // Define a variable children with JSX content
-    <Box sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', ml: 6 }}>
       <FormControlLabel // Render a FormControlLabel component
         label="Agriculture" // Set label for the FormControlLabel
         control={<Checkbox checked={checked[0]} onChange={handleChange2} />} // Render a Checkbox component with specific props
@@ -43,16 +43,16 @@ export default function IndeterminateCheckbox() { // Define a functional compone
       <FormControlLabel // Render a FormControlLabel component
         label="Agriculture & Fishing (2)"
         control={
-          <div className="checkbox-container"> {/* Replace inline styles with a class name */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <div className="expand-button"> {/* Replace inline styles with a class name */}
+              <button onClick={toggleExpand}>{expanded ? '▼' : '►'}</button>
+            </div>
             <Checkbox
               checked={checked[0] && checked[1]}
               indeterminate={checked[0] !== checked[1]}
               onChange={handleChange1}
             />
-            <div className="expand-button"> {/* Replace inline styles with a class name */}
-              <button onClick={toggleExpand}>{expanded ? '▼' : '►'}</button>
-            </div>
-          </div>
+          </Box>
         }
       />
       {expanded && (

@@ -21,26 +21,29 @@ const styles = {
 };
 
 const Navbar = () => {
+  // Retrieving user data from local storage
   const userDataString = localStorage.getItem("userData");
+  
+  // Hook for programmatically navigating between pages
   const navigate = useNavigate();
   const LogOut = () => {
     localStorage.removeItem("userData");
-    navigate("/");
+    navigate("/"); // Redirects to the home page
   };
 
   return (
-    <AppBar position="static" sx={styles.nav}>
+    <AppBar position="static" sx={styles.nav}> {/* Static positioning for the AppBar */}
       <Toolbar>
-        <Typography variant="h6" component="div" sx={styles.navbar}>
-          <Link component={RouterLink} to="/" sx={styles.navItem}>
+        <Typography variant="h6" component="div" sx={styles.navbar}> {/* Typography for the brand/name */}
+          <Link component={RouterLink} to="/" sx={styles.navItem}> {/* Navigation link for the home page */}
             Login
           </Link>
-          <Link component={RouterLink} to="/data" sx={styles.navItem}>
+          <Link component={RouterLink} to="/data" sx={styles.navItem}> {/* Navigation link for the data page */}
             Home
           </Link>
 
           {userDataString && (
-            <Button variant="contained" onClick={LogOut}>
+            <Button variant="contained" onClick={LogOut}> {/* Logout button */}
               LogOut
             </Button>
           )}

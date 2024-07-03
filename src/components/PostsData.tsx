@@ -1,6 +1,9 @@
+// Import necessary hooks and components from React and Material UI libraries
 import { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Typography , Box  } from "@mui/material";
+
+// Define the structure of a post object
 interface Post {
   userId: number;
   id: number;
@@ -14,13 +17,15 @@ const styles = {
     minHeight: "80%",
   },
   heading: {
-    color: "red",
+    color: "black",
   }
 };
 
 const PostsData: React.FC = () => {
+  // State to hold the posts data
   const [data, setData] = useState<Post[]>([]);
 
+  // Effect hook to fetch posts data when the component mounts
   useEffect(() => {
     // Fetch data from the API
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -29,6 +34,7 @@ const PostsData: React.FC = () => {
       .catch((err) => alert(err));
   }, []);
 
+  // Define the columns for the DataGrid component
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "title", headerName: "Title", width: 300 },
@@ -36,7 +42,7 @@ const PostsData: React.FC = () => {
   ];
 
   return (
-    <Box  sx ={styles.container}>
+    <Box sx={styles.container}>
         <Typography variant="h6" sx={styles.heading}>
             Dashboard
         </Typography>
