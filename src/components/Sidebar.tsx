@@ -4,8 +4,8 @@ import Checkbox from '@mui/material/Checkbox'; // Import Checkbox component from
 import FormControlLabel from '@mui/material/FormControlLabel'; // Import FormControlLabel component from Material-UI
 
 export default function IndeterminateCheckbox() { // Define a functional component named IndeterminateCheckbox
-  const [checked, setChecked] = React.useState([true, false]); // Initialize state variable checked with array [true, false]
-  const [expanded, setExpanded] = React.useState(true); // Initialize state variable expanded with true
+  const [checked, setChecked] = React.useState([false, false]); // Initialize both checkboxes as unchecked
+  const [expanded, setExpanded] = React.useState(false); // Initialize state variable expanded with true
 
   const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => { // Define a function handleChange1 that takes an event parameter
     setChecked([event.target.checked, event.target.checked]); // Update checked state with both values set to event.target.checked
